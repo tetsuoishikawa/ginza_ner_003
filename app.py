@@ -3,6 +3,7 @@ from spacy.pipeline import EntityRuler
 from spacy import displacy
 import json
 import streamlit as st
+import base64
 
 # GiNZAモデルの読み込み
 nlp = spacy.load("ja_ginza")
@@ -41,17 +42,12 @@ if st.button("解析開始"):
         f.write(html)
 
     # HTMLファイルのダウンロードリンクを作成
-    def download_link(object_to_download, download_filename, download_link_text):
-        b64 = base64.b64encode(object_to_download.encode()).decode()
+    def download_link(html_content, download_filename, download_link_text):
+        b64 = base64.b64encode(html_content.encode()).decode()
         return f'<a href="data:file/txt;base64,{b64}" download="{download_filename}">{download_link_text}</a>'
 
     download_html = download_link(html, output_filename, "解析結果をダウンロード")
     st.markdown(download_html, unsafe_allow_html=True)
 
     st.write("エンティティの情報が解析されました。以下のリンクからダウンロードできます。")
-
-
-
-
-
 
