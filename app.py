@@ -12,7 +12,7 @@ nlp = spacy.load("ja_ginza")
 ruler = nlp.add_pipe("entity_ruler", before="ner")
 
 # 読み込むJSONファイル名のリスト
-pattern_files = ["ginza_patterns_clinic_matsumoto-oomachi-kiso.json", "ginza_patterns_clinic_matsumoto-shi.json", "ginza_patterns_hospital.json", "ginza_patterns_houkan.json", "patterns_trinity_facility.json", "patterns_trinity_name.json"]
+pattern_files = ["ginza_patterns_clinic_matsumoto-oomachi-kiso.json", "ginza_patterns_clinic_matsumoto-shi.json", "ginza_patterns_hospital.json", "ginza_patterns_houkan.json", "patterns_trinity_facility.json"]
 
 # 各ファイルからパターンを読み込む
 for file in pattern_files:
