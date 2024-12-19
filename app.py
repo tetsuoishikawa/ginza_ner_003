@@ -2,6 +2,7 @@ import spacy
 from spacy.pipeline import EntityRuler
 from spacy import displacy
 import json
+import streamlit as st
 
 # GiNZAモデルの読み込み
 nlp = spacy.load("ja_ginza")
